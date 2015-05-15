@@ -1,6 +1,6 @@
 #bxSlider 4.1.2
 ##The fully-loaded, responsive jQuery content slider
-
+sdfdssddfsfds
 ###Why should I use this slider?
 * Fully responsive - will adapt to any device
 * Horizontal, vertical, and fade modes
