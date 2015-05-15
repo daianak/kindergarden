@@ -47,6 +47,19 @@ header .image{
 	vertical-align: middle;
 }
 
+.panel{
+	border: solid 1px #ccc;
+	border-radius: 3px;
+}
+
+#add-note{
+	margin-top: 1rem;
+	display: none;
+}
+#add-note.active{
+	display: block;
+}
+
 #logo{
 	font-size: 20px;
 	text-decoration: none;

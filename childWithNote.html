@@ -9,6 +9,8 @@
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
         <script src="scripts/parse_init.js"></script>
         <script src="vendor/handlebars-v3.0.3.js"></script>
+        <script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
+        <script src="vendor/handlebars-intl/locale-data/he.js"></script>
     </head>
     <body>
         <header>
@@ -30,31 +32,39 @@
                 </div>
             </div>
         </section>
-        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="javascript:toggleAddNote()">הוספת רשומה</button>
-        <form onsubmit="javascript:saveNote()">
-            <div class="form-group">
-                <label for="info-text">הרשומה:</label>
-                <textarea id="info-text" class="form-control" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success btn-lg btn-block" onclick="javascript:saveNote()">שמור רשומה</button>
-            </div>
-        </form>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="toggleAddNote()">הוספת רשומה</button>
+        <div id="add-note" class="panel panel-default">
+            <form class="panel-body" onsubmit="return saveNote()">
+                <div class="form-group">
+                    <label for="info-title">כותרת:</label>
+                    <input type="text" class="form-control" required id="info-title" />
+                </div>
+                <div class="form-group">
+                    <label for="info-text">הרשומה:</label>
+                    <textarea id="info-text" class="form-control" required rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">שמור רשומה</button>
+                </div>
+            </form>
+        </div>
         <section id="note">
-            <table id="notes" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>היסטוריה</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <h2>רשומות הילד</h2>
+            <div id="notes"></div>
         </section>
     <script id="note-template" type="text/x-handlebars-template">
         {{#each notes}}
-            <tr>
-                <td>{{attributes.infoText}}</td>
-            </tr>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{{attributes.title}}</h4>
+                <small>
+                    <strong>{{attributes.user.attributes.username}}</strong> | {{formatDate attributes.date day="numeric" month="numeric" year="numeric" hour="numeric" minute="numeric"}}
+                </small>
+            </div>
+            <div class="panel-body">
+                {{attributes.text}}
+            </div>
+        </div>
         {{/each}}
     </script>
     <script src="scripts/child_pageWithNote.js"></script>

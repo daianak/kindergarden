@@ -1,6 +1,9 @@
 (function(){
 	var Child = Parse.Object.extend("Child"),
+		Role = Parse.Object.extend("_Role"),
 		childrensData;
+
+	HandlebarsIntl.registerWith(Handlebars);
 
 	var elements = {
 		name: document.querySelector("#name"),
@@ -24,6 +27,19 @@
 			childrensData.push(childObj);
 			renderChildrens();
 			toggleForm();
+
+			var childRoleAcl = new Parse.ACL();
+			childRoleAcl.setPublicReadAccess(true);
+			childRoleAcl.setPublicWriteAccess(true);
+
+			var childRole = new Role(childObj.id, childRoleAcl);
+			childRole.save({
+				child: childObj
+			}).then(function(childRole){
+				console.log("saved role: ", childRole);
+			}, function(error){
+				console.error("Can't save role: ", error);
+			});
 		}, function(error){
 			console.error("Can't save child: ", error.message);
 		});
@@ -56,8 +72,14 @@
 		});
 	}
 
+	var intlData = {
+		locales: 'he-IL'
+	};
+
 	function renderChildrens(){
-		childrensTbody.innerHTML = childrensTemplate({ childrens: childrensData });
+		childrensTbody.innerHTML = childrensTemplate({ childrens: childrensData}, {
+			data: {intl: intlData}
+		});
 	}
 
 	window.toggleForm = function(){

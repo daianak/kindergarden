@@ -9,6 +9,8 @@
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 		<script src="scripts/parse_init.js"></script>
 		<script src="vendor/handlebars-v3.0.3.js"></script>
+		<script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
+		<script src="vendor/handlebars-intl/locale-data/he.js"></script>
 	</head>
 	<body>
 			<header>
@@ -55,7 +57,7 @@
 				{{#each childrens}}
 				<tr>
 					<td><a href="childWithNote.html?childId={{id}}">{{attributes.name}}</a></td>
-					<td><a href="childWithNote.html?childId={{id}}">{{attributes.birthdate}}</a></td>
+					<td><a href="childWithNote.html?childId={{id}}">{{formatDate attributes.birthdate day="numeric" month="long" year="numeric"}}</a></td>
 					<td><a href="childWithNote.html?childId={{id}}">{{attributes.age}}</a></td>
 					<td><a href="childWithNote.html?childId={{id}}">{{attributes.disabilities}}</a></td>
 				</tr>
