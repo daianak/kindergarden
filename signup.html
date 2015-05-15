@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kindergarden</title>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+		<script src="scripts/parse_init.js"></script>
+	</head>
+	<body class="bodyAboutUs">
+		<header>
+			<a id="logo" href="index.html"><span class="image"></span>המקום שלי</a>
+		</header>
+		<main class="main-text">
+			<section id="contact">
+				<form id="aboutUs" action="javascript:signUp()">
+					<div class="form-group">
+						<label for="username">*שם משתמש</label>
+						<input id="username" class="form-control" type="text" required name="username" value="">
+					</div>
+					<div class="form-group">
+						<label for="password">*סיסמא</label>
+						<input type="password" class="form-control" id="password" required name="pass" maxlength="8">
+					</div>
+					<div class="form-group">
+						<label for="email">אימייל</label>
+						<input type="email" class="form-control" id="email" />
+					</div>
+					<button type="submit" class="btn btn-success btn-default">הרשם</button>
+				</form>
+			</section>
+		</main>
+		<script src="includes/signin.js"></script>
+	</body>
+</html>

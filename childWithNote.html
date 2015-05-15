@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>המקום שלי</title>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script src="scripts/parse_init.js"></script>
+        <script src="vendor/handlebars-v3.0.3.js"></script>
+    </head>
+    <body>
+        <header>
+            <a id="logo" href="index.html"><span class="image"></span><span class="child-name"></span></a>
+        </header>
+        <section id="children">
+            <div class="list-group">
+                <div class="list-group-item">
+                    <h4>שם מלא</h4>
+                    <p class="list-group-item-text child-name"></p>
+                </div>
+                <div class="list-group-item">
+                    <h4>תאריך לידה</h4>
+                    <p class="list-group-item-text child-dob"></p>
+                </div>
+                <div class="list-group-item">
+                    <h4>לקויות</h4>
+                    <p class="list-group-item-text child-disabilities"></p>
+                </div>
+            </div>
+        </section>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="javascript:toggleAddNote()">הוספת רשומה</button>
+        <form onsubmit="javascript:saveNote()">
+            <div class="form-group">
+                <label for="info-text">הרשומה:</label>
+                <textarea id="info-text" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg btn-block" onclick="javascript:saveNote()">שמור רשומה</button>
+            </div>
+        </form>
+        <section id="note">
+            <table id="notes" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>היסטוריה</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    <script id="note-template" type="text/x-handlebars-template">
+        {{#each notes}}
+            <tr>
+                <td>{{attributes.infoText}}</td>
+            </tr>
+        {{/each}}
+    </script>
+    <script src="scripts/child_pageWithNote.js"></script>
+    </body>
+</html>

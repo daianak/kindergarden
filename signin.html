@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>המקום שלי - כניסה</title>
+		<meta charset="UTF-8">
+		<link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+		<script src="scripts/parse_init.js"></script>
+	</head>
+	<body class="bodyAboutUs">
+		<header>
+			<a id="logo" href="index.html"><span class="image"></span>המקום שלי</a>
+		</header>
+		<main class="main-text">
+			<section id="contact">
+				<!--h2>ברוכים הבאים</h2>
+				<p>
+					הגעתם למקום שלי ושלכם:) <br>
+					לכניסה אנו הכניסו פרטים ולחצו "הכנס",<br>
+					להרשמה אנו לחצו "הרשם" ואנו נשמח לארח אתכם בגן שלנו
+				</p-->
+				<form id="aboutUs" action="javascript:signIn()">
+					<div class="form-group">
+						<label for="username">*שם משתמש</label>
+						<input id="username" class="form-control" type="text" required name="username" value="">
+					</div>
+					<div class="form-group">
+						<label for="password">*סיסמא</label>
+						<input type="password" class="form-control" id="password" required name="pass" maxlength="8">
+					</div>
+					<button type="submit" class="btn btn-primary btn-default">כנס</button> <a id="info" href="signup.html" class="btn btn-success btn-default" role="button">הרשם</a>
+				</form>
+			</section>
+		</main>
+		<div id="signin-image">
+			<img src="images/children2.jpg">
+		</div>
+		<script src="includes/signin.js"></script>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{
+   "category": "menu",
+    "drinks": [
+	    {"name":"Espresso", "price":"$2", "url":"images/espresso.jpg"},
+	    {"name":"Hot Chocolate", "price":"$4","url":"images/cocoa.jpg"},
+	    {"name":"Cappuccino", "price":"$3","url":"images/cappuccino.jpg"}
+	],
+	"sweets": [
+	    {"name":"Cake", "price":"$5", "url":"images/cake.jpg"},
+	    {"name":"Muffin", "price":"$4","url":"images/muffin.jpg"},
+	    {"name":"Chocolate Chip Cookie", "price":"$3","url":"images/cookie.jpg"}
+	]      
+}

@@ -1,0 +1,284 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+html{
+    font-size: 16px;
+}
+
+header, section, nav, aside, ul, li, main {
+	display: block;
+}
+
+body {
+	vertical-align: middle;
+	width: 100%;
+	position: relative;
+	font-family: Verdana, Tahoma, Arial, Sans-Serif;
+	direction: rtl;
+	padding: 1rem;
+	box-sizing: border-box;
+}
+
+header {
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+	background-color: #B4D2FF;
+	padding: 0 .5rem;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+	line-height: 350%;
+	z-index: 10;
+}
+
+.hidden{
+	display: none;
+}
+
+header .image{
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center, top right;
+	display: inline-block;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+#logo{
+	font-size: 20px;
+	text-decoration: none;
+	color: rgb(81, 81, 81);
+	text-align: right;
+}
+
+#logo .image{
+	background-image: url(../images/logo.png);
+	width: 70px;
+	margin-right: .9rem;
+	float: right;
+}
+
+#login{
+	background-image: url(../images/loginButton.png);
+	width: 40px;
+	float: left;
+    margin-right: .5rem;
+}
+
+#logout{
+	text-decoration: none;
+	float: left;
+}
+
+section{
+	height: 600px;
+	width: 100%;
+	margin-top: 50px;
+}
+
+li {
+	height: 89px;
+	background-repeat: no-repeat;
+	list-style-type: none;
+	border-color: #dcdcdc;
+	width: 100%;
+}
+
+li a {
+	position: relative;
+	text-decoration: none;
+	background-repeat: no-repeat;
+}
+
+.items-list{
+	padding-top: 30px;
+	-webkit-padding-start: 5px;
+}
+
+.items-list li{
+    height: auto;
+}
+
+
+.items-list a:hover, .items-list a:active{
+	background-color: rgba(114, 201, 244, 0.45);
+}
+.items-list li#children a{
+	background-image: url(../images/yeled.png);
+}
+
+.items-list li#withrole a{
+	background-image: url(../images/role2.png);
+}
+
+.items-list li#contactlist a{
+	background-image: url(../images/contactList.png);
+}
+
+.items-list li#forms a{
+	background-image: url(../images/forms.png);
+}
+
+.items-list li#activities a{
+	background-image: url(../images/activities2.png);
+}
+
+.items-list a{
+    padding-left: 64px;
+    box-sizing: border-box;
+    background-size: 40px, 40px;
+    height: 4rem;
+    line-height: 4rem;
+    background-position: right, .5rem;
+    border-bottom: dotted 1px #e2e2e2;
+    cursor: pointer;
+    display: block;
+    color: black;
+    opacity: .7;
+    text-align: center;
+}
+
+.items-list li:last-child a{
+    border-bottom: none
+}
+
+.items-list a:hover, .items-list a:active{
+    background-color: rgba(114, 201, 244, 0.45);
+}
+
+.items-list li a{
+	background-image: url(../images/sig.png);
+	background-position: right;
+	text-align: right;
+	text-indent: 50px;
+}
+
+#events{
+	box-sizing: border-box;
+	background-color: #0483a0;
+}
+
+nav {
+	width: 100%;
+}
+
+h2{
+	color: #660066;
+	text-align: center;
+}
+
+p{
+	text-align: center;
+}
+
+.main-text{
+    padding: 1rem .5rem;
+	position: relative;
+	top: 20px;
+}
+
+.main-text p{
+    opacity: .8;
+}
+
+input[type=cartSubmit] {
+	border: 1px;
+	border-radius: 5px;
+	background: rgb(76, 111, 146);
+	color: #ffffff;
+	font-size: 16px;
+	cursor: pointer;
+	width: 70%;
+	padding: 3%;
+	margin-top: 100px;
+	font-family: sans-serif;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+}
+
+.bodyAboutUs {
+	color: #333;
+	background: #ffffff;
+	
+}
+
+h5 {
+	text-align: right;
+	color:#ffffff;
+	font-size: 1.4rem;
+	border-bottom: dotted 1px #e2e2e2;
+}
+
+#contactis, .nice-form {
+    background: rgba(184, 184, 255, 1);
+    border-radius: 3px;
+	padding: 1rem;
+}
+
+#children{
+	height: 20%;
+}
+
+#contact{
+	height: 20%;
+}
+
+#Info {
+	text-decoration:none;
+	text-align:right;
+	padding: .5rem;
+	margin-top: 1rem;
+	display:block;
+}
+
+form{
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+th, td {
+    padding: 15px;
+    text-align:right;
+}
+
+.table {
+	    vertical-align: middle;
+	    /* box-sizing: border-box; */
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 5rem;
+		width: 80%;
+}
+
+.thumbnail{
+	float: left;
+	/* display: inline-block; */
+	/* width: 50px; */
+	/* height: 50px; */
+	/* background-repeat: no-repeat; */
+	/* background-size: cover; */
+	/* background-position: center center; */
+	/* margin-right: .5rem; */
+	/* vertical-align: middle; */
+    
+	/* border-radius: 3px; */
+}
+
+.row{
+	margin-top: 50px;
+}
+
+#signin-image{
+	text-align: center;
+}
+
+#signin-image img{
+	max-width: 90%;
+}

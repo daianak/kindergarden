@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>המקום שלי</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style/style.css">
+		<link rel="stylesheet" href="style/stylepopUpTest.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+		<script src="scripts/parse_init.js"></script>
+		<script src="vendor/handlebars-v3.0.3.js"></script>
+	</head>
+	<body>
+		<header>
+			<a id="logo" href="index.html"><span class="image"></span>בעלי תפקיד</a>
+			<a id="logout" href="signin.html" class="btn btn-default btn-xs" role="button" action="javascript:logout()">צא</a>
+		</header>
+			<table id="roles" class="table table-bordered">
+				<thead>
+					<tr>
+						<th>שם מלא</th>
+						<th>תפקיד</th>
+						<th>טלפון</th>
+						<th>אימייל</th>
+						<th>ימי עבודה אפשריים</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		<!-- panel with buttons -->
+		<div class="main">
+			<div class="panel">
+				<a href="#join_form" id="join_pop">הוסף בעל תפקיד</a>
+			</div>
+		</div>
+		<!-- popup form-->
+		<a href="#x" class="overlay" id="join_form"></a>
+		<div class="popup">
+			<form action="javascript:addRole()" method="get">
+				<h2>בעל תפקיד חדש</h2>
+				<p>אנא הכנס פרטי בעל תפקיד כאן:</p>
+				<div>
+					<label for="firstname">שם פרטי</label>
+					<input type="text" id="firstname" value="" />
+				</div>
+				<div>
+					<label for="lastname">שם משפחה</label>
+					<input type="text" id="lastname" value="" />
+				</div>
+				<div>
+					<label for="role">תפקיד</label>
+					<input type="text" id="role" value="" />
+				</div>
+				<div>
+					<label for="tel">טלפון</label>
+					<input type="tel" id="tel" value="" />
+				</div>
+				<div>
+					<label for="email">כתובת מייל</label>
+					<input type="email" id="email" value="" />
+				</div>
+				<h4>ימי עבודה בגן</h4>
+				<div>
+					<label for="daysOfWork"></label>
+						<textarea name="daysOfWork" id="daysOfWork" class="form-control" rows="3" cols="15"></textarea>
+				</div>
+				<input type="submit" class="btn btn-primary" value="שמור" />
+			</form>
+			<a class="close" href="#close"></a>
+		</div>
+		<script id="role-template" type="text/x-handlebars-template">
+			{{#each roles}}
+			<tr>
+				<td>{{attributes.firstname}} {{attributes.lastname}}</td>
+				<td>{{attributes.role}}</td>
+				<td>{{attributes.tel}}</td>
+				<td><a href="mailto:{{attributes.email}}">{{attributes.email}}</a></td>
+				<td>{{attributes.daysOfWork}}</td>
+			</tr>
+			{{/each}}
+		</script>
+		<script src="scripts/withRole2.js"></script>
+		<script src="includes/signin.js"></script>
+	</body>
+</html>
