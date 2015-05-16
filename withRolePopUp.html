@@ -14,7 +14,7 @@
 	<body>
 		<header>
 			<a id="logo" href="index.html"><span class="image"></span>בעלי תפקיד</a>
-			<a id="logout" href="signin.html" class="btn btn-default btn-xs" role="button" action="javascript:logout()">צא</a>
+			<a id="logout" href="signin.html" action="javascript:logout()">צא</a>
 		</header>
 			<table id="roles" class="table table-bordered">
 				<thead>
@@ -30,7 +30,7 @@
 			</table>
 		<!-- panel with buttons -->
 		<div class="main">
-			<div class="panel">
+			<div class="rolePanel">
 				<a href="#join_form" id="join_pop">הוסף בעל תפקיד</a>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 					<input type="email" id="email" value="" />
 				</div>
 				<h4>ימי עבודה בגן</h4>
-				<div>
+				<!--div>
 					<label class="checkbox-inline">
 						<input type="checkbox" id="inlineCheckbox1" value="option1">א
 					</label>
@@ -80,6 +80,10 @@
 					<label class="checkbox-inline">
 						<input type="checkbox" id="inlineCheckbox6" value="option6">ו
 					</label>
+				</div-->
+				<div>
+					<label for="daysOfWork"></label>
+					<textarea name="daysOfWork" id="daysOfWork" class="form-control" rows="3" cols="15"></textarea>
 				</div>
 				<input type="submit" class="btn btn-primary" value="שמור" />
 			</form>
