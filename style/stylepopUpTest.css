@@ -12,11 +12,11 @@ html {
 	margin: 40px;
 	padding: 50px;
 }
-.panel {
+.rolePanel {
 	height: 34px;
 	padding: 10px;
 }
-.panel a#login_popup, .panel a#join_pop {
+.rolePanel a#login_popup, .rolePanel a#join_pop {
 	border: 2px solid #07839f;
 	color: #fff; background-color: #0483a0;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
