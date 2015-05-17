@@ -52,9 +52,12 @@
 		var currentUser = Parse.User.current(),
 			logoutElement = document.querySelector("#logout");
 
-		if (currentUser)
-			logoutElement.innerText = "התנתק " + currentUser.attributes.username;
-		else
-			logoutElement.style.display = "none";
+			if(!window.location.href.match('signin.html'|'signup.html')){
+				if (currentUser)
+					logoutElement.innerText = "התנתק " + currentUser.attributes.username;
+				else
+					logoutElement.style.display = "none";
+			}
+
 	}
 })();

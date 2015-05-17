@@ -84,6 +84,11 @@ header .image{
 #logout{
 	text-decoration: none;
 	float: left;
+	font-size:small;
+}
+
+.popup{
+	height: 90%;
 }
 
 section{
@@ -132,11 +137,11 @@ li a {
 }
 
 .items-list li#forms a{
-	background-image: url(../images/forms.png);
+	background-image: url(../images/workbook.png);
 }
 
 .items-list li#activities a{
-	background-image: url(../images/activities2.png);
+	background-image: url(../images/activities3.png);
 }
 
 .items-list a{
@@ -179,12 +184,22 @@ nav {
 }
 
 h2{
-	color: #660066;
 	text-align: center;
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	color: #444;
+	margin: 0;
+	padding: 0px 0px 6px 0px;
+	font-size: 45px;
+	line-height: 44px;
+	letter-spacing: 1px;
 }
 
 p{
 	text-align: center;
+}
+
+.activities{
+	font-size: x-small;
 }
 
 .main-text{
@@ -263,7 +278,6 @@ th, td {
 
 .table {
 	    vertical-align: middle;
-	    /* box-sizing: border-box; */
 	    margin-left: auto;
 	    margin-right: auto;
 	    margin-top: 5rem;

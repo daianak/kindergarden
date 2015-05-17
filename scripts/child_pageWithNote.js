@@ -74,19 +74,19 @@
     };
 
     window.saveNote = function(){
-        if (!childRole) {
+        /*if (!childRole) {
             getChildRole().then(window.saveNote);
             return false;
-        }
+        }*/
 
-        var info = new Note(),
-            infoAcl = new Parse.ACL();
+        var info = new Note()
+            /*infoAcl = new Parse.ACL();
 
         infoAcl.setRoleReadAccess(childRole, true);
         infoAcl.setPublicReadAccess(false);
         infoAcl.setPublicWriteAccess(false);
 
-        info.setACL(infoAcl);
+        info.setACL(infoAcl);*/
 
         info.save({
             date: new Date(),
