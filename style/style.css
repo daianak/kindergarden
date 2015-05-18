@@ -169,9 +169,10 @@ li a {
 
 .items-list li a{
 	background-image: url(../images/sig.png);
+	display:block;
 	background-position: right;
 	text-align: right;
-	text-indent: 50px;
+	text-indent: 45px;
 }
 
 #events{
@@ -301,4 +302,8 @@ th, td {
 
 #signin-image img{
 	max-width: 90%;
+}
+
+#withRole{
+	height: 800px;
 }
