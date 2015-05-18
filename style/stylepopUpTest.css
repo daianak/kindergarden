@@ -62,12 +62,17 @@ a#login_popup:hover, a#join_pop:hover {
 	visibility: visible;
 	opacity: 1;
 }
-.popup h2{color:#07839f; line-height:1.8em}
+.popup h2{
+	color:#07839f;
+	line-height:1.8em
+}
+
 .popup {
 	background-color: #fff;
 	border: 3px solid #fff;
 	display: inline-block;
-	left: 50%; color:#666;
+	left: 50%;
+	color:#666;
 	opacity: 0;
 	padding: 15px;
 	position: fixed;
@@ -174,13 +179,5 @@ input[type=button]{
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-
-}
-
-.checkbox-inline {
-	text-align: right;
-	margin-left: 20px;
-	vertical-align: middle;
-	position: relative;
 
 }

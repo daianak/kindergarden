@@ -84,7 +84,7 @@ header .image{
 #logout{
 	text-decoration: none;
 	float: left;
-	font-size:small;
+	font-size:x-small;
 }
 
 .popup{
@@ -199,7 +199,7 @@ p{
 }
 
 .activities{
-	font-size: x-small;
+	font-size: small;
 }
 
 .main-text{

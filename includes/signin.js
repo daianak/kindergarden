@@ -52,7 +52,7 @@
 		var currentUser = Parse.User.current(),
 			logoutElement = document.querySelector("#logout");
 
-			if(!window.location.href.match('signin.html')){
+			if(!window.location.href.match(('signin.html')||('signup.html'))){
 				if (currentUser)
 					logoutElement.innerText = "התנתק " + currentUser.attributes.username;
 				else
