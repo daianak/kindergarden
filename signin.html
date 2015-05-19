@@ -11,16 +11,18 @@
 	</head>
 	<body class="bodyAboutUs">
 		<header>
-			<a id="logo" href="index.html"><span class="image"></span>המקום שלי</a>
+			<!--a id="logo" href="index.html"><span class="image"></span>המקום שלי</a-->
+			<a id="logo" href="index.html" onclick="checkUser()"><span class="image"></span>המקום שלי</a>
+			<script>
+				function checkUser(){
+					if (parse.user.current.match(null)){
+						alert("יש להתחבר ראשית" +error.message);
+					}
+				}
+			</script>
 		</header>
 		<main class="main-text">
 			<section id="contact">
-				<!--h2>ברוכים הבאים</h2>
-				<p>
-					הגעתם למקום שלי ושלכם:) <br>
-					לכניסה אנו הכניסו פרטים ולחצו "הכנס",<br>
-					להרשמה אנו לחצו "הרשם" ואנו נשמח לארח אתכם בגן שלנו
-				</p-->
 				<form id="aboutUs" action="javascript:signIn()">
 					<div class="form-group">
 						<label for="username">*שם משתמש</label>

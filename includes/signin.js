@@ -52,12 +52,20 @@
 		var currentUser = Parse.User.current(),
 			logoutElement = document.querySelector("#logout");
 
-			if(!window.location.href.match(('signin.html')||('signup.html'))){
-				if (currentUser)
-					logoutElement.innerText = "התנתק " + currentUser.attributes.username;
-				else
-					logoutElement.style.display = "none";
+			if(!window.location.href.match('signin.html')){
+				if(!window.location.href.match('signup.html')){
+					if (currentUser)
+						logoutElement.innerText = "התנתק " + currentUser.attributes.username;
+					else
+						logoutElement.style.display = "none";
+				}
 			}
 
 	}
+
+	/*function checkUser(){
+		if (parse.user.current.match(null)){
+			alert("יש להתחבר ראשית" +error.message);
+		}
+	}*/
 })();
