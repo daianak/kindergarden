@@ -306,4 +306,9 @@ th, td {
 
 #withRole{
 	height: 800px;
+	margin-top: 50px;
+}
+
+h6{
+	text-align: right;
 }
