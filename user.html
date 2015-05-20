@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>המקום שלי</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script src="scripts/parse_init.js"></script>
+    <script src="vendor/handlebars-v3.0.3.js"></script>
+    <script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
+    <script src="vendor/handlebars-intl/locale-data/he.js"></script>
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html"><span class="image"></span>ילדים</a>
+        <a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+    </header>
+    <div>
+        <h1 data-property="username"></h1>
+        <h2>הרשאו</h2>
+        <ul data-property="roles"></ul>
+
+        <form onsubmit="return addRole()">
+            <label for="add-role">הוסף הרשאה: </label>
+            <select id="add-role" data-property="roles_select"></select>
+            <p>
+                <button type="submit">הוסף</button>
+            </p>
+        </form>
+    </div>
+    <script src="scripts/user.js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 (function(){
-	var Permissions = Parse.Object.extend("Permissions"),
+	var Role = Parse.Object.extend("_Role"),
+		User = Parse.Object.extend("_User"),
 		permissionsData;
 
 	var elements = {
@@ -29,6 +30,7 @@
 	};
 
 	getAllPermissions();
+	getAllUsers();
 
 	function getFormValues(){
 		var values = {},
@@ -48,10 +50,17 @@
 	}
 
 	function getAllPermissions(){
-		var query = new Parse.Query(Permissions);
+		var query = new Parse.Query(Role);
 		query.find().then(function(data){
 			permissionsData = data;
 			renderPermissions();
+		});
+	}
+
+	function getAllUsers(){
+		var query = new Parse.Query(User);
+		return query.find().then(function(data){
+			console.log("users: ", data);
 		});
 	}
 
