@@ -63,9 +63,10 @@
 
 	}
 
-	/*function checkUser(){
-		if (parse.user.current.match(null)){
+	function checkUser(){
+		var userInfo=parse.user.current.getUserData(name);
+		if (userInfo==null){
 			alert("יש להתחבר ראשית" +error.message);
 		}
-	}*/
+	}
 })();

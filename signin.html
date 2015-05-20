@@ -12,14 +12,7 @@
 	<body class="bodyAboutUs">
 		<header>
 			<!--a id="logo" href="index.html"><span class="image"></span>המקום שלי</a-->
-			<a id="logo" href="index.html" onclick="checkUser()"><span class="image"></span>המקום שלי</a>
-			<script>
-				function checkUser(){
-					if (parse.user.current.match(null)){
-						alert("יש להתחבר ראשית" +error.message);
-					}
-				}
-			</script>
+			<a id="logo" href="index.html" action="javascript:checkUser()"><span class="image"></span>המקום שלי</a>
 		</header>
 		<main class="main-text">
 			<section id="contact">
