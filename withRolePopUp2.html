@@ -16,7 +16,7 @@
 			<a id="logo" href="index.html"><span class="image"></span>בעלי תפקיד</a>
 			<a id="logout" href="signin.html" action="javascript:logout()">צא</a>
 		</header>
-			<div id="roles" class="list-group">
+			<div id="positions" class="list-group">
 				<div class="list-group">
 					<div class="list-group-item">
 						<h4 class="list-group-item-heading"></h4>
@@ -33,7 +33,7 @@
 		<!-- popup form-->
 		<a href="#x" class="overlay" id="join_form"></a>
 		<div class="popup">
-			<form action="javascript:addRole()" method="get">
+			<form action="javascript:addPosition()" method="get">
 				<h4>בעל תפקיד חדש</h4>
 				<p>אנא הכנס פרטי בעל תפקיד כאן:</p>
 				<div>
@@ -65,8 +65,8 @@
 			</form>
 			<a class="close" href="#close"></a>
 		</div>
-		<script id="role-template" type="text/x-handlebars-template">
-			{{#each roles}}
+		<script id="position-template" type="text/x-handlebars-template">
+			{{#each positions}}
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h4>{{attributes.firstname}} {{attributes.lastname}}</h4>

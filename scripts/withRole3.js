@@ -1,6 +1,6 @@
 (function(){
-	var Role = Parse.Object.extend("Role"),
-		rolesData;
+	var Position = Parse.Object.extend("Position"),
+		positionsData;
 
 	var elements = {
 		firstname: document.querySelector("#firstname"),
@@ -11,23 +11,23 @@
 		daysOfWork: document.querySelector("#daysOfWork")
 	};
 
-	var rolesTbody = document.querySelector("#roles"),
-		roleTemplate = Handlebars.compile(document.querySelector("#role-template").innerHTML);
+	var positionsTbody = document.querySelector("#positions"),
+		positionTemplate = Handlebars.compile(document.querySelector("#position-template").innerHTML);
 
-	window.addRole = function(){
-		var roleAttributes = getFormValues();
+	window.addPosition = function(){
+		var positionAttributes = getFormValues();
 
 
-		var role = new Role();
-		role.save(roleAttributes).then(function(roleObj){
-			rolesData.push(roleObj);
-			renderRoles();
+		var position = new Position();
+		position.save(positionAttributes).then(function(positionObj){
+			positionsData.push(positionObj);
+			renderPositions();
 		}, function(error){
-			console.error("Can't save role: ", error.message);
+			console.error("Can't save position: ", error.message);
 		});
 	};
 
-	getAllRoles();
+	getAllPositions();
 
 	function getFormValues(){
 		var values = {},
@@ -46,15 +46,15 @@
 		return values;
 	}
 
-	function getAllRoles(){
-		var query = new Parse.Query(Role);
+	function getAllPositions(){
+		var query = new Parse.Query(Position);
 		query.find().then(function(data){
-			rolesData = data;
-			renderRoles();
+			positionsData = data;
+			renderPositions();
 		});
 	}
 
-	function renderRoles(){
-		rolesTbody.innerHTML = roleTemplate({ roles: rolesData });
+	function renderPositions(){
+		positionsTbody.innerHTML = positionTemplate({ positions: positionsData });
 	}
 })();

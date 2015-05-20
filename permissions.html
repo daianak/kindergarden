@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>המקום שלי</title>
+		<meta charset="utf-8" />
+		<link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="style/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+		<script src="scripts/parse_init.js"></script>
+		<script src="vendor/handlebars-v3.0.3.js"></script>
+	</head>
+	<body>
+		<header>
+			<a id="logo" href="index.html"><span class="image"></span>מתן הרשאות</a>
+			<a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+		</header>
+		<section id="contact">
+			<table id="permission" class="table table-bordered">
+				<thead>
+				<tr>
+					<th class="success">שם משתמש</th>
+					<th class="success">שם מלא</th>
+					<th class="success">כתובת מייל</th>
+					<th class="success">טלפון</th>
+					<th class="success">הרשאות</th>
+				</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</section>
+		<button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף הרשאה</button>
+		<section id="permissions-form" class="hidden nice-form">
+			<form action="javascript:addPermissions()" method="get">
+				<div class="form-group">
+					<label for="username">שם משתמש</label>
+					<input id="username" class="form-control" type="text">
+				</div>
+				<div class="form-group">
+					<label for="fullname">שם מלא</label>
+					<input id="fullname" class="form-control" type="text" required name="fullname">
+				</div>
+				<div class="form-group">
+					<label for="email">כתובת מייל</label>
+					<input type="email" id="email" class="form-control" required name="mail" value="">
+				</div>
+				<div class="form-group">
+					<label for="tel">טלפון</label>
+					<input type="tel" id="tel" class="form-control" name="phone" required name="tel" value="">
+				</div>
+				<div class="form-group">
+					<label for="permissionsOption">הרשאות</label>
+					<select id="permissionsOption" class="form-control" name="הרשאות">
+						<option value="מנהל">מנהל</option>
+						<option value="צפייה בלבד">צפייה בלבד</option>
+						<option value="צפייה וכתיבה">צפייה וכתיבה</option></select>
+				</div>
+				<input type="submit" class="btn btn-default" value="הכנס" >
+			</form>
+		</section>
+		<script id="permissions-template" type="text/x-handlebars-template">
+			{{#each permissions}}
+			<tr>
+				<td>{{attributes.username}}</td>
+				<td>{{attributes.fullname}}</td>
+				<td>{{attributes.email}}</td>
+				<td>{{attributes.tel}}</td>
+				<td>{{attributes.permissionsOption}}</td>
+			</tr>
+			{{/each}}
+		</script>
+		<script src="scripts/permissions_form.js"></script>
+		<script src="includes/signin.js"></script>
+	</body>
+</html>
