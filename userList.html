@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>המקום שלי</title>
+    <meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script src="scripts/parse_init.js"></script>
+    <script src="vendor/handlebars-v3.0.3.js"></script>
+    <script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
+    <script src="vendor/handlebars-intl/locale-data/he.js"></script>
+</head>
+<body>
+    <header>
+        <a id="logo" href="index.html"><span class="image"></span>משתמשים</a>
+        <a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+    </header>
+    <section id="children">
+        <table id="users" class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="success">שם מלא</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+    <button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף משתמש</button>
+    <section id="user-form" class="hidden nice-form">
+        <form action="javascript:addUser()" method="get">
+            <div class="form-group">
+                <label for="username">שם משתמש</label>
+                <input id="username" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="password">*סיסמא</label>
+                <input type="password" class="form-control" id="password" required name="pass" maxlength="8">
+            </div>
+            <div class="form-group">
+                <label for="email">כתובת מייל</label>
+                <input type="email" id="email" class="form-control" required name="mail" value="">
+            </div>
+            <input type="submit" class="btn btn-default" value="הכנס" >
+        </form>
+    </section>
+    <script id="user-template" type="text/x-handlebars-template">
+        {{#each users}}
+        <tr>
+            <td><a href="user.html?userId={{id}}">{{element.username}}</a></td>
+        </tr>
+        {{/each}}
+    </script>
+    <script src="scripts/user_List.js"></script>
+    <script src="includes/signin.js"></script>
+</body>
+</html>

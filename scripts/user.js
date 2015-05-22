@@ -44,7 +44,7 @@
         elements.username.innerText = currentUser.attributes.username;
 
         getAllRoles().then(function(roles){
-           elements.roles_select.innerHTML = "<option>Choose permission:</option>" + roles.map(function(role){
+           elements.roles_select.innerHTML = "<option>Choose permission</option>" + roles.map(function(role){
                var roleName = role.attributes.child ? role.attributes.child.attributes.name : role.attributes.name;
                return '<option value="' + role.id + '">' + roleName + '</option>';
            }).join("");

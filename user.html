@@ -14,22 +14,25 @@
 </head>
 <body>
     <header>
-        <a id="logo" href="index.html"><span class="image"></span>ילדים</a>
+        <a id="logo" href="index.html"><span class="image"></span><span class="user-name"></span></a></a>
         <a id="logout" href="signin.html" action="javascript:logout()">צא</a>
     </header>
-    <div>
-        <h1 data-property="username"></h1>
-        <h2>הרשאו</h2>
-        <ul data-property="roles"></ul>
-
-        <form onsubmit="return addRole()">
-            <label for="add-role">הוסף הרשאה: </label>
-            <select id="add-role" data-property="roles_select"></select>
-            <p>
-                <button type="submit">הוסף</button>
-            </p>
-        </form>
-    </div>
+    <section id="contact">
+        <div>
+            <h1>שם משתמש: </h1>
+            <h1 data-property="username"></h1>
+            <h2>הרשאות</h2>
+            <ul data-property="roles"></ul>
+            <form onsubmit="return addRole()">
+                <div class="form-group">
+                    <label for="add-role">הוסף הרשאה: </label>
+                    <select id="add-role" class="form-control" data-property="roles_select"></select><br>
+                    <button type="submit" class="btn btn-success btn-default">הוסף</button>
+                </div>
+            </form>
+        </div>
+    </section>
     <script src="scripts/user.js"></script>
+    <script src="includes/signin.js"></script>
 </body>
 </html>
