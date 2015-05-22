@@ -327,3 +327,12 @@ th, td {
 h6{
 	text-align: right;
 }
+
+#contacts-list input{ display: none }
+#contacts-list label{
+    display: block;
+    margin: 0;
+    border: none;
+}
+#contacts-list .panel-body{ display: none }
+#contacts-list input:checked + .panel-body{ display: block; }

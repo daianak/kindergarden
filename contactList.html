@@ -17,19 +17,7 @@
 			<button id="logout" onclick="javascript:logout()">צא</button>
 		</header>
 		<section id="contact">
-			<table id="contacts" class="table table-bordered">
-				<thead>
-					<tr>
-						<th class="success">שם מלא</th>
-						<th class="success">טלפון</th>
-						<th class="success">טלפון נוסף</th>
-						<th class="success">כתובת מייל</th>
-						<th class="success">קרבה משפחתית</th>
-						<th class="success">כתובת מגורים</th>
-					</tr>
-				</thead>
-				<tbody data-property="contacts"></tbody>
-			</table>
+            <ul data-property="contacts" id="contacts-list"></ul>
 		</section>
 		<button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף איש קשר</button>
 		<section data-property="contactForm" class="hidden nice-form">
@@ -69,18 +57,21 @@
 				<input type="submit" class="btn btn-default" value="הכנס" >
 			</form>
 		</section>
-		<script data-property="contactsTemplate" type="text/x-handlebars-template">
-			{{#each contacts}}
-				<tr>
-					<td><a href="user.html?userId={{id}}">{{attributes.fullName}}</a></td>
-					<td><a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></td>
-					<td><a href="tel:{{attributes.contact.tel2}}">{{attributes.contact.tel2}}</a></td>
-					<td><a href="mailto:{{attributes.email}}">{{attributes.email}}</a></td>
-					<td>{{attributes.kinship.attributes.name}}</td>
-					<td>{{attributes.contact.address}}</td>
-				</tr>
-			{{/each}}
-		</script>
+        <script data-property="contactsTemplate" type="text/x-handlebars-template">
+            {{#each contacts}}
+            <li class="panel panel-info">
+                <label class="panel-heading" for="contact_{{id}}">{{attributes.fullName}}</label>
+                <input type="checkbox" id="contact_{{id}}" />
+                <div class="panel-body">
+                    <div><strong>Tel:</strong></strong><a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
+                    <div><strong>Tel2:</strong> <a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
+                    <div><strong>Email:</strong> <a href="mailto:{{attributes.email}}">{{attributes.email}}</a></div>
+                    <div><strong>קירבה:</strong> {{attributes.kinship.attributes.name}}</div>
+                    <div><strong>כתובת</strong> {{attributes.contact.address}}</div>
+                </div>
+            </li>
+            {{/each}}
+        </script>
 		<script src="scripts/contactInfo2.js"></script>
 		<script src="includes/signin.js"></script>
 	</body>
