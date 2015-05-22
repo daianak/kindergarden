@@ -1,68 +1,72 @@
 (function(){
-	var Contact = Parse.Object.extend("Contact"),
-		contactsData;
+	var contactsData,
+        roles,
+        kinships;
 
-	var elements = {
-		fullname: document.querySelector("#fullname"),
-		tel: document.querySelector("#tel"),
-		tel2: document.querySelector("#tel2"),
-		email: document.querySelector("#email"),
-		Kinship: document.querySelector("#Kinship"),
-		address: document.querySelector("#address")
-	};
+	var contactsTemplate;
 
-	var contactFormElement = document.querySelector("#contact-form");
+	window.addContact = function(e){
+        e.preventDefault();
 
-	var contactsTbody = document.querySelector("#contacts tbody"),
-		contactsTemplate = Handlebars.compile(document.querySelector("#contact-template").innerHTML);
-
-	window.addContact = function(){
 		var contactAttributes = getFormValues();
 
-		var contact = new Contact();
-		contact.save(contactAttributes).then(function(contactObj){
-			contactsData.push(contactObj);
-			renderContacts();
-			toggleForm();
-		}, function(error){
-			console.error("Can't save contact: ", error.message);
-		});
+        var roleId = elements.roles.querySelector(":checked").value,
+            role = roles.index[roleId];
+
+        var kinshipId = elements.kinship.querySelector(":checked").value,
+            kinship = kinships.index[kinshipId];
+
+        contactAttributes.kinship = kinship;
+
+        try {
+            createUser(contactAttributes, role).then(function (newUser) {
+                renderContacts();
+                toggleForm();
+            }, function (error) {
+                console.error("Can't save contact: ", error.message);
+            });
+        }
+        catch(e){
+            alert("Can't save user.");
+            console.error("Can't save user: ", e);
+        }
+
+        return false;
 	};
 
-	getAllContacts();
+	init();
 
-	function getFormValues(){
-		var values = {},
-			element;
+	function init() {
+		initElements();
 
-		for(var elementName in elements){
-			element = elements[elementName];
-			if (element) {
-				if (element.getAttribute("type") === "date")
-					values[elementName] = new Date(element.value);
-				else
-					values[elementName] = element.value;
-			}
-		}
+        elements.user_form.addEventListener("submit", addContact);
 
-		return values;
-	}
+		contactsTemplate = Handlebars.compile(elements.contactsTemplate.innerHTML);
+		renderContacts();
+        getAllRoles().then(function(allRoles){
+            roles = allRoles;
+            setValuesToSelect(elements.roles, allRoles.roles, function(role){
+                return role.attributes.child.attributes.name;
+            }, "בחר ילד");
+        });
 
-	function getAllContacts(){
-		var query = new Parse.Query(Contact);
-		query.find().then(function(data){
-			contactsData = data;
-			renderContacts();
-		});
+        getAllKinship().then(function(allKinship){
+            kinships = allKinship;
+            setValuesToSelect(elements.kinship, kinships.list, function(value){
+                return value.attributes.name;
+            });
+        });
 	}
 
 	function renderContacts() {
-		contactsTbody.innerHTML = contactsTemplate({contacts: contactsData});
+        getAllUsers().then(function(users){
+            elements.contacts.innerHTML = contactsTemplate({contacts: users});
+        });
 	}
 
 	window.toggleForm = function() {
-		contactFormElement.classList.toggle("hidden");
-		if (!contactFormElement.classList.contains("hidden"))
+		elements.contactForm.classList.toggle("hidden");
+		if (!elements.contactForm.classList.contains("hidden"))
 			document.querySelector("#fullname").focus();
 	};
 

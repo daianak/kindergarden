@@ -15,7 +15,7 @@
     <body>
         <header>
             <a id="logo" href="index.html"><span class="image"></span><span class="child-name"></span></a>
-            <a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+            <button id="logout" onclick="javascript:logout()">צא</button>
         </header>
         <section id="children">
             <div class="list-group">
@@ -59,7 +59,7 @@
             <div class="panel-heading">
                 <h4>{{attributes.title}}</h4>
                 <small>
-                    <strong>{{attributes.user.attributes.username}}</strong> | {{formatDate attributes.date day="numeric" month="numeric" year="numeric" hour="numeric" minute="numeric"}}
+                    <strong><a href="user.html?userId={{attributes.user.id}}">{{attributes.user.attributes.username}}</a></strong> | {{formatDate attributes.date day="numeric" month="numeric" year="numeric" hour="numeric" minute="numeric"}}
                 </small>
             </div>
             <div class="panel-body">

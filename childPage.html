@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
 		<script src="scripts/parse_init.js"></script>
+		<script src="scripts/global.js"></script>
 		<script src="vendor/handlebars-v3.0.3.js"></script>
 		<script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
 		<script src="vendor/handlebars-intl/locale-data/he.js"></script>
@@ -15,7 +16,7 @@
 	<body>
 			<header>
 				<a id="logo" href="index.html"><span class="image"></span>ילדים</a>
-				<a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+                <button id="logout" onclick="javascript:logout()">צא</button>
 			</header>
 			<section id="children">
 				<table id="childrens" class="table table-bordered">

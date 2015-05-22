@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+    <script src="scripts/global.js"></script>
     <script src="scripts/parse_init.js"></script>
     <script src="vendor/handlebars-v3.0.3.js"></script>
     <script src="vendor/handlebars-intl/handlebars-intl.min.js"></script>
@@ -15,7 +16,7 @@
 <body>
     <header>
         <a id="logo" href="index.html"><span class="image"></span>משתמשים</a>
-        <a id="logout" href="signin.html" action="javascript:logout()">צא</a>
+        <button id="logout" onclick="javascript:logout()">צא</button>
     </header>
     <section id="children">
         <table id="users" class="table table-bordered">
@@ -24,7 +25,7 @@
                 <th class="success">שם מלא</th>
             </tr>
             </thead>
-            <tbody></tbody>
+            <tbody data-property="users"></tbody>
         </table>
     </section>
     <button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף משתמש</button>
@@ -45,10 +46,10 @@
             <input type="submit" class="btn btn-default" value="הכנס" >
         </form>
     </section>
-    <script id="user-template" type="text/x-handlebars-template">
+    <script id="user-template" data-property="usersTemplate" type="text/x-handlebars-template">
         {{#each users}}
         <tr>
-            <td><a href="user.html?userId={{id}}">{{element.username}}</a></td>
+            <td><a href="user.html?userId={{id}}">{{attributes.username}}</a></td>
         </tr>
         {{/each}}
     </script>

@@ -45,28 +45,29 @@
 	}
 
 	window.logout= function(){
-		Parse.User.logOut();
+		Parse.User.logOut().then(function(){
+            window.location.href = "signin.html";
+        })
 	};
 
 	function setCurrentUser(){
 		var currentUser = Parse.User.current(),
 			logoutElement = document.querySelector("#logout");
 
-			if(!window.location.href.match('signin.html')){
-				if(!window.location.href.match('signup.html')){
-					if (currentUser)
-						logoutElement.innerText = "התנתק " + currentUser.attributes.username;
-					else
-						logoutElement.style.display = "none";
-				}
-			}
+        if (!currentUser){
+            logoutElement && (logoutElement.style.display = "none");
+            document.querySelector("#logo").style.display = "none";
+        }
+        else {
+            if (!window.location.href.match('signin.html')) {
+                if (!window.location.href.match('signup.html')) {
+                    if (currentUser)
+                        logoutElement.innerText = "התנתק " + (currentUser.attributes.fullName || currentUser.attributes.username);
+                    else
+                        logoutElement.style.display = "none";
+                }
+            }
+        }
 
-	}
-
-	function checkUser(){
-		var userInfo=parse.user.current.getUserData(name);
-		if (userInfo==null){
-			alert("יש להתחבר ראשית" +error.message);
-		}
 	}
 })();

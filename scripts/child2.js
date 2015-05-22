@@ -72,10 +72,6 @@
 		});
 	}
 
-	var intlData = {
-		locales: 'he-IL'
-	};
-
 	function renderChildrens(){
 		childrensTbody.innerHTML = childrensTemplate({ childrens: childrensData}, {
 			data: {intl: intlData}

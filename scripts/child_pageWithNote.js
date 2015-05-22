@@ -47,7 +47,7 @@
         var query = new Parse.Query(Role);
         query.equalTo("child", child);
         return query.first().then(function(role){
-            childRole = role;
+            childRole = role || null;
             return role;
         });
     }
@@ -74,19 +74,23 @@
     };
 
     window.saveNote = function(){
-        /*if (!childRole) {
+        if (childRole === undefined) {
             getChildRole().then(window.saveNote);
             return false;
-        }*/
+        }
 
-        var info = new Note()
-            /*infoAcl = new Parse.ACL();
+        if (childRole === null) {
+            alert("Couldn't get child role!");
+            return false;
+        }
+        var info = new Note(),
+            infoAcl = new Parse.ACL();
 
         infoAcl.setRoleReadAccess(childRole, true);
         infoAcl.setPublicReadAccess(false);
         infoAcl.setPublicWriteAccess(false);
 
-        info.setACL(infoAcl);*/
+        info.setACL(infoAcl);
 
         info.save({
             date: new Date(),
@@ -123,19 +127,4 @@
     function renderNotes(notesData){
         notesTbody.innerHTML = notesTemplate({ notes: notesData }, intlData);
     }
-
-    /*
-    var Role = Parse.Object.extend("_Role");
-    var query = new Parse.Query(Role);
-    query.equalTo("name", "test");
-    query.find().then(function(testRoles){
-        var testRole = testRoles[0];
-        testRole.getUsers().add(Parse.User.current());
-        testRole.save().then(function(role){
-            console.log("SAVED: ", role);
-        }, function(error){
-            console.error("ERROR: ", error);
-        });
-    });
-    */
 })();

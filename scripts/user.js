@@ -1,8 +1,6 @@
 (function(){
     var User = Parse.Object.extend("_User"),
-        Role = Parse.Object.extend("_Role"),
         currentUser,
-        elements = {},
         rolesIndex = {};
 
     window.addRole = addRole;
@@ -22,32 +20,42 @@
         var roleId = elements.roles_select.querySelector(":checked").value;
         if (roleId){
             var role = rolesIndex[roleId];
-
-            role.getUsers().add(currentUser);
-            role.save().then(function(role){
-                console.log("SAVED: ", role);
-            }, function(error){
-                console.error("ERROR: ", error);
-            });
+            addUserToRole(role, currentUser);
         }
 
         return false;
     }
 
-    function initElements(){
-        var propertyElements = document.querySelectorAll("[data-property]");
-        for(var i=0; i< propertyElements.length; i++){
-            elements[propertyElements[i].dataset.property] = propertyElements[i];
-        }
+    function getUserRoles(){
+        return (new Parse.Query(Role)).equalTo("users", currentUser).include("child").find().then(function(roles){
+            elements.roles.innerHTML = roles.map(function(role){
+                return "<li>" + role.attributes.child.attributes.name + "</li>";
+            }).join("");
+            return roles;
+        });
     }
+
     function renderUser(){
         elements.username.innerText = currentUser.attributes.username;
 
-        getAllRoles().then(function(roles){
-           elements.roles_select.innerHTML = "<option>Choose permission</option>" + roles.map(function(role){
-               var roleName = role.attributes.child ? role.attributes.child.attributes.name : role.attributes.name;
-               return '<option value="' + role.id + '">' + roleName + '</option>';
-           }).join("");
+        getUserRoles().then(function(userRoles){
+            var userRolesIndex = {};
+            userRoles.forEach(function(role){
+                userRolesIndex[role.id] = true;
+            });
+
+            getAllRoles().then(function(allRoles){
+               elements.roles_select.innerHTML = "<option>Choose permission</option>" +
+                   allRoles.roles
+                       .filter(function(role) {
+                           return !userRolesIndex[role.id];
+                       })
+                       .map(function(role){
+                           var roleName = role.attributes.child ? role.attributes.child.attributes.name : role.attributes.name;
+                           return '<option value="' + role.id + '">' + roleName + '</option>';
+                       })
+                       .join("");
+            });
         });
     }
 
@@ -64,18 +72,6 @@
         return query.get(userId).then(function(user){
             currentUser = user;
             return user;
-        });
-    }
-
-    function getAllRoles(){
-        var query = new Parse.Query(Role);
-        query.include("child");
-        return query.find().then(function(roles){
-            roles.forEach(function(role){
-                rolesIndex[role.id] = role;
-            });
-
-            return roles;
         });
     }
 })();
