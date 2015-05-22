@@ -5,9 +5,7 @@
 
 	var contactsTemplate;
 
-	window.addContact = function(e){
-        e.preventDefault();
-
+	window.addContact = function(){
 		var contactAttributes = getFormValues();
 
         var roleId = elements.roles.querySelector(":checked").value,
@@ -38,8 +36,6 @@
 
 	function init() {
 		initElements();
-
-        elements.user_form.addEventListener("submit", addContact);
 
 		contactsTemplate = Handlebars.compile(elements.contactsTemplate.innerHTML);
 		renderContacts();

@@ -33,7 +33,7 @@
 		</section>
 		<button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף איש קשר</button>
 		<section data-property="contactForm" class="hidden nice-form">
-			<form data-property="user_form">
+			<form onsubmit="return addContact()">
 				<div class="form-group">
 					<label for="child">Child:</label>
 					<select data-property="roles" id="child" class="form-control" required></select>

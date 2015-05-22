@@ -106,6 +106,8 @@ function createUser(attributes, role){
                 tel2: attributes.tel2
             }
         }).then(function(newUser){
+            allUsers.push(newUser);
+
             if (role)
                 return addUserToRole(role, newUser);
             else
