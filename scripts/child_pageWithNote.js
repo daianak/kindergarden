@@ -86,22 +86,27 @@
         var info = new Note(),
             infoAcl = new Parse.ACL();
 
-        infoAcl.setRoleReadAccess(childRole, true);
-        infoAcl.setPublicReadAccess(false);
-        infoAcl.setPublicWriteAccess(false);
+        getAdminRole().then(function(admin){
+            infoAcl.setRoleReadAccess(childRole, true);
+            infoAcl.setRoleReadAccess(admin, true);
+            infoAcl.setRoleWriteAccess(admin, true);
 
-        info.setACL(infoAcl);
+            infoAcl.setPublicReadAccess(false);
+            infoAcl.setPublicWriteAccess(false);
 
-        info.save({
-            date: new Date(),
-            text: elements.infoText.value,
-            childId: child.id,
-            title: elements.infoTitle.value,
-            user: Parse.User.current()
-        }).then(function(newNote){
-            addNewNote(newNote);
-        }, function(error){
-            console.error("Can't save note: ", error);
+            info.setACL(infoAcl);
+
+            info.save({
+                date: new Date(),
+                text: elements.infoText.value,
+                childId: child.id,
+                title: elements.infoTitle.value,
+                user: Parse.User.current()
+            }).then(function(newNote){
+                addNewNote(newNote);
+            }, function(error){
+                console.error("Can't save note: ", error);
+            });
         });
 
         return false;

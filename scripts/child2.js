@@ -18,7 +18,6 @@
 	var childrensTbody = document.querySelector("#childrens tbody"),
 		childrensTemplate = Handlebars.compile(document.querySelector("#child-template").innerHTML);
 
-
 	window.addChild = function(){
 		var childAttributes = getFormValues();
 
@@ -30,7 +29,7 @@
 
 			var childRoleAcl = new Parse.ACL();
 			childRoleAcl.setPublicReadAccess(true);
-			childRoleAcl.setPublicWriteAccess(true);
+			childRoleAcl.setPublicWriteAccess(false);
 
 			var childRole = new Role(childObj.id, childRoleAcl);
 			childRole.save({

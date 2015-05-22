@@ -8,7 +8,23 @@ var Role = Parse && Parse.Object.extend("_Role"),
     User = Parse && Parse.Object.extend("_User"),
     Kinship = Parse && Parse.Object.extend("Kinship"),
     allKinship,
-    allUsers;
+    allUsers,
+    adminRole,
+    _currentUserIsAdmin;
+
+initGlobal();
+
+function currentUserIsAdmin(){
+    if (_currentUserIsAdmin !== undefined)
+        return Promise.resolve(_currentUserIsAdmin);
+
+    var query = (new Parse.Query(Role));
+    query.equalTo("name", "Admin");
+    query.equalTo("users", Parse.User.current());
+    return query.first().then(function(adminRole) {
+        return _currentUserIsAdmin = !!adminRole;
+    });
+}
 
 function initElements(){
     var propertyElements = document.querySelectorAll("[data-property]");
@@ -91,6 +107,16 @@ function addUserToRole(role, user){
     });
 }
 
+function getAdminRole(){
+    if (adminRole)
+        return Promise.resolve(adminRole);
+
+    return (new Parse.Query(Role)).equalTo("name", "Admin").first().then(function(admin){
+        adminRole = admin;
+        return admin;
+    });
+}
+
 function createUser(attributes, role){
     return getAllUsers().then(function(allUsers){
         var user = new User();
@@ -116,4 +142,13 @@ function createUser(attributes, role){
             console.error("Error saving user: ", error);
         });
     });
+}
+
+function initGlobal(){
+    currentUserIsAdmin().then(function(isAdmin){
+        if (isAdmin)
+            document.body.classList.add("admin");
+    });
+
+    initGlobal = null;
 }

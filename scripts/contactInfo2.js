@@ -42,7 +42,7 @@
         getAllRoles().then(function(allRoles){
             roles = allRoles;
             setValuesToSelect(elements.roles, allRoles.roles, function(role){
-                return role.attributes.child.attributes.name;
+                return role.attributes.child ? role.attributes.child.attributes.name : role.attributes.name;
             }, "בחר ילד");
         });
 

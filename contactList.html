@@ -7,9 +7,10 @@
 		<link rel="stylesheet" href="style/style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-		<script src="scripts/global.js"></script>
 		<script src="scripts/parse_init.js"></script>
-		<script src="vendor/handlebars-v3.0.3.js"></script>
+        <script src="scripts/global.js"></script>
+
+        <script src="vendor/handlebars-v3.0.3.js"></script>
 	</head>
 	<body>
 		<header>
@@ -19,7 +20,7 @@
 		<section id="contact">
             <ul data-property="contacts" id="contacts-list"></ul>
 		</section>
-		<button type="button" class="btn btn-info" onclick="javascript:toggleForm()">הוסף איש קשר</button>
+		<button type="button" class="btn btn-info admin-only" onclick="javascript:toggleForm()">הוסף איש קשר</button>
 		<section data-property="contactForm" class="hidden nice-form">
 			<form onsubmit="return addContact()">
 				<div class="form-group">
