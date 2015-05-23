@@ -105,6 +105,12 @@ header .image{
 	text-decoration: none;
 	float: left;
 	font-size:x-small;
+	line-height: inherit;
+	font-family: inherit;
+	cursor: pointer;
+	overflow: visible;
+	margin: 0;
+	text-transform: none;
 }
 
 .popup{
@@ -326,6 +332,7 @@ th, td {
 
 #signin-image img{
 	max-width: 90%;
+	padding-top: 20px;
 }
 
 #withRole{
@@ -337,11 +344,27 @@ h6{
 	text-align: right;
 }
 
-#contacts-list input{ display: none }
+#contacts-list input{
+	display: none
+}
+
 #contacts-list label{
     display: block;
     margin: 0;
     border: none;
 }
-#contacts-list .panel-body{ display: none }
-#contacts-list input:checked + .panel-body{ display: block; }
+
+#contacts-list .panel-body{
+	display: none;
+	direction: rtl;
+}
+
+#contacts-list input:checked + .panel-body{
+	display: block;
+}
+
+#signin{
+	text-align: center;
+	display: block;
+	color: #990099;
+}

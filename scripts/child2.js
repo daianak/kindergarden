@@ -8,7 +8,6 @@
 	var elements = {
 		name: document.querySelector("#name"),
 		birthdate: document.querySelector("#birthdate"),
-		age: document.querySelector("#age"),
 		disabilities: document.querySelector("#disabilities"),
 		newInfo: document.querySelector("#newInfo")
 	};

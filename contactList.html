@@ -24,7 +24,7 @@
 		<section data-property="contactForm" class="hidden nice-form">
 			<form onsubmit="return addContact()">
 				<div class="form-group">
-					<label for="child">Child:</label>
+					<label for="child">בחר ילד</label>
 					<select data-property="roles" id="child" class="form-control" required></select>
 				</div>
 				<div class="form-group">
@@ -64,11 +64,12 @@
                 <label class="panel-heading" for="contact_{{id}}">{{attributes.fullName}}</label>
                 <input type="checkbox" id="contact_{{id}}" />
                 <div class="panel-body">
-                    <div><strong>Tel:</strong></strong><a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
-                    <div><strong>Tel2:</strong> <a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
-                    <div><strong>Email:</strong> <a href="mailto:{{attributes.email}}">{{attributes.email}}</a></div>
+                    <div><strong>טלפון: </strong><a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
+                    <div><strong>טלפון2: </strong> <a href="tel:{{attributes.contact.tel}}">{{attributes.contact.tel}}</a></div>
+                    <div><strong>כתובת מייל: </strong> <a href="mailto:{{attributes.email}}">{{attributes.email}}</a></div>
                     <div><strong>קירבה:</strong> {{attributes.kinship.attributes.name}}</div>
                     <div><strong>כתובת</strong> {{attributes.contact.address}}</div>
+					<div><strong>דף משתמש: </strong><a href="user.html?userId={{id}}">{{attributes.username}}</a></div>
                 </div>
             </li>
             {{/each}}

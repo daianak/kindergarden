@@ -24,7 +24,6 @@
 					<tr>
 						<th class="success">שם מלא</th>
 						<th class="success">תאריך לידה</th>
-						<th class="success">גיל</th>
 						<th class="success">לקויות</th>
 					</tr>
 					</thead>
@@ -43,10 +42,6 @@
 						<input type="date" id="birthdate" class="form-control" required />
 					</div>
 					<div class="form-group">
-						<label for="age">*גיל</label>
-						<input type="number" id="age" class="form-control" required name="age" value="3" min="3" max="7">
-					</div>
-					<div class="form-group">
 						<label for="disabilities">*לקויות</label>
 						<textarea id="disabilities" class="form-control" required name="disabilities" rows="2" cols="15"></textarea>
 					</div>
@@ -59,7 +54,6 @@
 				<tr>
 					<td><a href="childWithNote.html?childId={{id}}">{{attributes.name}}</a></td>
 					<td><a href="childWithNote.html?childId={{id}}">{{formatDate attributes.birthdate day="numeric" month="long" year="numeric"}}</a></td>
-					<td><a href="childWithNote.html?childId={{id}}">{{attributes.age}}</a></td>
 					<td><a href="childWithNote.html?childId={{id}}">{{attributes.disabilities}}</a></td>
 				</tr>
 				{{/each}}

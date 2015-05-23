@@ -11,24 +11,22 @@
 	</head>
 	<body class="bodyAboutUs">
 		<header>
-			<!--a id="logo" href="index.html"><span class="image"></span>המקום שלי</a-->
 			<a id="logo" href="index.html"><span class="image"></span>המקום שלי</a>
 		</header>
-		<main class="main-text">
-			<section id="contact">
-				<form id="aboutUs" action="javascript:signIn()">
-					<div class="form-group">
-						<label for="username">*שם משתמש</label>
-						<input id="username" class="form-control" type="text" required name="username" value="">
-					</div>
-					<div class="form-group">
-						<label for="password">*סיסמא</label>
-						<input type="password" class="form-control" id="password" required name="pass" maxlength="8">
-					</div>
-					<button type="submit" class="btn btn-primary btn-default">כנס</button> <a id="info" href="signup.html" class="btn btn-success btn-default" role="button">הרשם</a>
-				</form>
-			</section>
-		</main>
+		<section id="contact">
+			<h1 id="signin">המקום שלי</h1>
+			<form id="aboutUs" action="javascript:signIn()">
+				<div class="form-group">
+					<label for="username">*שם משתמש</label>
+					<input id="username" class="form-control" type="text" required name="username" value="">
+				</div>
+				<div class="form-group">
+					<label for="password">*סיסמא</label>
+					<input type="password" class="form-control" id="password" required name="pass" maxlength="8">
+				</div>
+				<button type="submit" class="btn btn-primary btn-default">כנס</button> <a id="info" href="signup.html" class="btn btn-success btn-default" role="button">הרשם</a>
+			</form>
+		</section>
 		<div id="signin-image">
 			<img src="images/children2.jpg">
 		</div>
