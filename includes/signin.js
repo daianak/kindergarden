@@ -54,20 +54,20 @@
 		var currentUser = Parse.User.current(),
 			logoutElement = document.querySelector("#logout");
 
-        if (!currentUser){
-            logoutElement && (logoutElement.style.display = "none");
-            document.querySelector("#logo").style.display = "none";
-        }
-        else {
-            if (!window.location.href.match('signin.html')) {
-                if (!window.location.href.match('signup.html')) {
-                    if (currentUser)
-                        logoutElement.innerText = "התנתק " + (currentUser.attributes.fullName || currentUser.attributes.username);
-                    else
-                        logoutElement.style.display = "none";
-                }
-            }
-        }
+			if (!currentUser){
+				logoutElement && (logoutElement.style.display = "none");
+				document.querySelector("#logo").style.display = "none";
+			}
 
-	}
+			else {
+				if (!window.location.href.match('signin.html')) {
+					if (!window.location.href.match('signup.html')) {
+						if (currentUser)
+							logoutElement.innerText = "התנתק " + (currentUser.attributes.fullName || currentUser.attributes.username);
+						else
+							logoutElement.style.display = "none";
+					}
+				}
+			}
+		}
 })();
