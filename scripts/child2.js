@@ -30,14 +30,20 @@
 			childRoleAcl.setPublicReadAccess(true);
 			childRoleAcl.setPublicWriteAccess(false);
 
-			var childRole = new Role(childObj.id, childRoleAcl);
-			childRole.save({
-				child: childObj
-			}).then(function(childRole){
-				console.log("saved role: ", childRole);
-			}, function(error){
-				console.error("Can't save role: ", error);
-			});
+            getAdminRole().then(function(admin){
+                childRoleAcl.setRoleWriteAccess(admin, true);
+
+                var childRole = new Role(childObj.id, childRoleAcl);
+                childRole.save({
+                    child: childObj
+                }).then(function(childRole){
+                    console.log("saved role: ", childRole);
+                }, function(error){
+                    console.error("Can't save role: ", error);
+                });
+            }, function(e){
+                console.error("Can't get admin role: ", e);
+            });
 		}, function(error){
 			console.error("Can't save child: ", error.message);
 		});
