@@ -209,7 +209,7 @@ nav {
 }
 
 h2{
-	text-align: right;
+	text-align: center;
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	color: #444;
 	margin: 0;
@@ -219,10 +219,28 @@ h2{
 	letter-spacing: 1px;
 }
 
-h4{
+h3{
 	text-align: right;
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	display: inline-block;
+}
+
+h4{
+	text-align: right;
+	font-family: times, Times New Roman, times-roman, georgia, serif;
+	display: block;
+}
+
+#childWithNote{
+	text-align: center;
+}
+
+#childWithNoteDOB{
+	text-align: center;
+}
+
+#childWithNoteName{
+	text-align: center;
 }
 
 p{
