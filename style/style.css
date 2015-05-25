@@ -209,7 +209,7 @@ nav {
 }
 
 h2{
-	text-align: center;
+	text-align: right;
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	color: #444;
 	margin: 0;
@@ -219,7 +219,7 @@ h2{
 	letter-spacing: 1px;
 }
 
-h1{
+h4{
 	text-align: right;
 	font-family: times, Times New Roman, times-roman, georgia, serif;
 	display: inline-block;
@@ -287,6 +287,7 @@ h5 {
 
 #contact{
 	height: 20%;
+
 }
 
 #Info {
